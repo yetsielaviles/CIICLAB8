@@ -7,23 +7,25 @@ public class ForwardArrayIterator<E> implements Iterator<E> {
 
 	private E[] arr;    // the array to iterate over
 	// other internal fields...
+	private int current;
 	
 	public ForwardArrayIterator(E[] arr) { 
 		this.arr = arr; 
+		current=-1;
 		// initialize other internal fields as needed
 	}
 	
 	public boolean hasNext() {
 		// rewrite...
-		return true;   
+		return current <arr.length-1;   
 	}
 
 	public E next() throws NoSuchElementException {
 		if (!hasNext())
 			throw new 
 				NoSuchElementException("No more elements to iterate over."); 
-		// rewrite
-		return null;
+		current++;
+		return arr[current];
 	}
 
 	public void remove() throws UnsupportedOperationException {
